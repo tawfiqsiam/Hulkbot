@@ -9,6 +9,7 @@
      "start": "node bot.js"
 },
      "dependencies": {
+          "roblox-js": "latest",
           "dblapi.js": "^2.0.1",
           "node-opus": "^0.2.7",
           "pornhub": "^0.0.5",
