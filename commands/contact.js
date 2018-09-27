@@ -1,4 +1,5 @@
 let oid = process.env.oid
+let config = require('../json/config.json')
 
 module.exports.run = (bot, message, args, discord) => {
     var mes = args.join(' ')
@@ -8,7 +9,7 @@ module.exports.run = (bot, message, args, discord) => {
     .setColor(`BLUE`)
     .setFooter(`This message was sent by ${message.author.tag}`)
     .setThumbnail(bot.user.avatarURL)
-    bot.users.get(oid).send({ embed })
+    bot.users.get('242734840829575169').send({ embed })
 }
 
 module.exports.help = {
