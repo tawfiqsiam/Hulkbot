@@ -9,7 +9,7 @@
      "start": "node bot.js"
 },
      "dependencies": {
-          "get-youtube-id": "latest,
+          "get-youtube-id": "latest",
           "youtube-info": "latest",
           "ytdl-core": "latest",
           "roblox-js": "latest",
