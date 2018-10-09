@@ -9,6 +9,7 @@
      "start": "node bot.js"
 },
      "dependencies": {
+          "ffmpeg": "latest",
           "get-youtube-id": "latest",
           "youtube-info": "latest",
           "ytdl-core": "latest",
@@ -26,7 +27,7 @@
           "nedb": "^1.8.0",
           "automeme": "^0.0.3",
           "discord-bot-list": "1.0.1",
-          "ffmpeg-binaries": "^3.2.2-3",
+          "ffmpeg-binaries": "latest",
           "node-persist": "2.1.0",
           "pouchdb": "6.4.2",
           "google": "^2.1.0",
