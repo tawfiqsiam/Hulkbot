@@ -1,6 +1,6 @@
 const getytid = require('get-youtube-id')
 const ytinfo = require('youtube-info')
-const key = process.env.ytapikey
+const key = process.env.yt
 const get = require('request')
 const dl = require('ytdl-core')
 
