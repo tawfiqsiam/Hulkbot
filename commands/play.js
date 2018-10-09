@@ -1,38 +1,94 @@
-const YTDL = require('ytdl-core')
-var servers = {}
+const getytid = require('get-youtube-id')
+const ytinfo = require('youtube-info')
+const key = process.env.ytapikey
+const get = require('request')
+const dl = require('ytdl-core')
 
-module.exports.run = (bot, message, args, discord) => {
-  if (!args[0]) {
-    message.channel.send("Please provide a song name/link!");
-    return;
-  }
-  if (!message.member.voiceChannel) {
-    message.channel.send("No voice channel? AINT NOBODY GOT TIME FOR DAT!")
-    return;
-  }
-  if (!servers[message.guild.id]) servers[message.guild.id] = {
-    queue: ["https://www.youtube.com/watch?v=z4S2qqX7YvA"]
-  }
-  if (!message.member.voiceChannel) message.member.voiceChannel.join().then((connection) => {
-     function play(connection, message) {
-   message.channel.send("I have started playing " + args[0] + " in " + message.member.voiceChannel.name + ".")
-   var server = servers[message.guild.id]
-   
-   server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}))
-   
-   server.queue.shift()
-   
-   server.dispatcher.on('end', () => {
-      if (server.queue[0]) play(connection, message)
-      else connection.disconnect()
+var queue = []
+var isPlaying = false
+var controller = "499015008450117663"
+
+
+module.exports.run = (bot, message, args) => {
+  const m = message.member
+  const vc = m.voiceChannel
+  const msg = args.join(" ");
+  if (!vc) return message.channel.send("Join a voice channel first.");
+  
+  if (queue.length > 0 || isPlaying) {
+    getID(msg, (id) => {
+      addqueue(id)
+      ytinfo(id, (err, info) => {
+        if (err) throw new Error(err);
+        const embed = new discord.RichEmbed()
+        .addField("Now Playing", `Started playing **${info.title}** in ${vc.name}.`)
+        .setTimestamp()
+        .setColor("GREEN")
+        message.channel.send({embed: embed})
+      })
+    })
+  } else {
+    isPlaying = true
+    getID(msg, (id) => {
+      queue.push("placeholder")
+      play(id, mess)
+      ytinfo(id, (err, info) => {
+        const embed = new discord.RichEmbed()
+        .addField("Now Playing", `Started playing **${info.title}** in **${vc.name}**.`)
+        .setTimestamp()
+        .setColor("GREEN")
+      })
     })
   }
-    play(connection, play);
-  })
-   
-  let server = servers[message.guild.id]
-} 
+}
+
+function play(id, message) {
+  voicechannel = message.member.voiceChannel;
   
+  voicechannel.join().then(conn => {
+    stream = ytdl(`https://youtube.com/watch?v=${id}`, {
+      filter: "audioonly"
+    })
+    
+    skipreq = 0;
+    skippers = [];
+    
+    dispatcher = conn.playStream(stream)
+    
+  })
+}
+
+function getID(str, cb) {
+  if (isYt(str)) {
+    cb(getytid(str))
+  } else {
+    searchyt(str, (id) => {
+      cb(id)
+    })
+  }
+}
+
+function addqueue(strID) {
+  if (isYt(strID)) {
+    queue.push(getytid(strID))
+  } else {
+    
+  }
+}
+
+function searchyt(q, cb) {
+  get(`https://googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(q)}&key=${key}`, (err, res, body) => {
+    var json = JSON.parse(body)
+    if (json.items) {
+      cb(json.items[0].id.videoId);
+    }
+  })
+}
+
+function isYt(str) {
+  return str.toLowerCase().indexOf("youtube.com") > -1;
+}
+
 module.exports.help = {
   name: "play"
 }
