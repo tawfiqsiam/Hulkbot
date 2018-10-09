@@ -1,4 +1,4 @@
-module.exports.run = (bot, message, args) = {
+module.exports.run = (bot, message, args) => {
   const vc = message.member.voiceChannel
   if (!vc) return;
   vc.join().then(conn => {
