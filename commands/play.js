@@ -22,7 +22,7 @@ module.exports.run = (bot, message, args) => {
         if (err) throw new Error(err);
         const discord = require('discord.js');
         const embed = new discord.RichEmbed()
-        .addField("Now Playing", `Started playing **${info.title}** in ${vc.name}.`)
+        .addField("Added to Queue", `Added **${info.title}** to the queue..`)
         .setTimestamp()
         .setColor("GREEN")
         message.channel.send({embed: embed})
@@ -52,11 +52,17 @@ function play(id, message) {
       filter: "audioonly"
     })
     
-    skipreq = 0;
-    skippers = [];
-    
     dispatcher = conn.playStream(stream)
     
+    dispatcher.on('end', () => {
+      queue.shift()
+      if (queue.length == 0) {
+        queue = []
+        isPlaying = false
+      } else {
+        playMusic(queue[0], message)
+      }
+    })
   })
 }
 
