@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args) => {
     isPlaying = true
     getID(msg, (id) => {
       queue.push("placeholder")
-      play(id, mess)
+      play(id, msg)
       ytinfo(id, (err, info) => {
         const embed = new discord.RichEmbed()
         .addField("Now Playing", `Started playing **${info.title}** in **${vc.name}**.`)
