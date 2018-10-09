@@ -3,6 +3,7 @@ const ytinfo = require('youtube-info')
 const key = process.env.yt
 const get = require('request')
 const dl = require('ytdl-core')
+const discord = require('discord.js')
 
 var queue = []
 var isPlaying = false
