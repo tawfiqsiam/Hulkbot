@@ -13,6 +13,7 @@ module.exports.run = (bot, message, args) => {
   const m = message.member
   const vc = m.voiceChannel
   const msg = args.join(" ");
+  if (!msg) return message.channel.send("You need to include a youtube link, or a song name.")
   if (!vc) return message.channel.send("Join a voice channel first.");
   
   if (queue.length > 0 || isPlaying) {
