@@ -3,7 +3,6 @@ const ytinfo = require('youtube-info')
 const key = process.env.yt
 const get = require('request')
 const dl = require('ytdl-core')
-const discord = require('discord.js')
 
 var queue = []
 var isPlaying = false
@@ -21,6 +20,7 @@ module.exports.run = (bot, message, args) => {
       addqueue(id)
       ytinfo(id, (err, info) => {
         if (err) throw new Error(err);
+        const discord = require('discord.js');
         const embed = new discord.RichEmbed()
         .addField("Now Playing", `Started playing **${info.title}** in ${vc.name}.`)
         .setTimestamp()
@@ -34,6 +34,7 @@ module.exports.run = (bot, message, args) => {
       queue.push("placeholder")
       play(id, message)
       ytinfo(id, (err, info) => {
+        const discord = require('discord.js')
         const embed = new discord.RichEmbed()
         .addField("Now Playing", `Started playing **${info.title}** in **${vc.name}**.`)
         .setTimestamp()
@@ -47,7 +48,7 @@ function play(id, message) {
   voicechannel = message.member.voiceChannel;
   
   voicechannel.join().then(conn => {
-    stream = yt(`https://youtube.com/watch?v=${id}`, {
+    stream = dl(`https://youtube.com/watch?v=${id}`, {
       filter: "audioonly"
     })
     
