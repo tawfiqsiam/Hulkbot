@@ -100,3 +100,5 @@ function isYt(str) {
 module.exports.help = {
   name: "play"
 }
+
+module.exports.queue = queue
