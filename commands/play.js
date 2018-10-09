@@ -46,7 +46,7 @@ function play(id, message) {
   voicechannel = message.member.voiceChannel;
   
   voicechannel.join().then(conn => {
-    stream = ytdl(`https://youtube.com/watch?v=${id}`, {
+    stream = yt(`https://youtube.com/watch?v=${id}`, {
       filter: "audioonly"
     })
     
@@ -77,7 +77,7 @@ function addqueue(strID) {
 }
 
 function searchyt(q, cb) {
-  get(`https://googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(q)}&key=${key}`, (err, res, body) => {
+  get(`https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(q)}&key=${key}`, (err, res, body) => {
     var json = JSON.parse(body)
     if (json.items) {
       cb(json.items[0].id.videoId);
