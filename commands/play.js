@@ -6,8 +6,8 @@ const dl = require('ytdl-core')
 
 var queue = []
 var isPlaying = false
-var controller = "499015008450117663"
-
+var tester = "499014801234853888"
+var isTester = false
 
 module.exports.run = (bot, message, args) => {
   const m = message.member
@@ -15,6 +15,14 @@ module.exports.run = (bot, message, args) => {
   const msg = args.join(" ");
   if (!msg) return message.channel.send("You need to include a youtube link, or a song name.")
   if (!vc) return message.channel.send("Join a voice channel first.");
+  const guild = bot.guilds.get('356178662837452800')
+  if (guild.members.get(m.user.id)) {
+    const mem = guild.members.get(m.user.id)
+    
+    if (mem.roles.get(tester)) {
+      isTester = true
+    }
+  }
   
   if (queue.length > 0 || isPlaying) {
     getID(msg, (id) => {
@@ -47,7 +55,7 @@ module.exports.run = (bot, message, args) => {
 
 function play(id, message) {
   voicechannel = message.member.voiceChannel;
-  
+  if (!isTester) return message.channel.send("Sorry, only testers can use the music module.");
   voicechannel.join().then(conn => {
     stream = dl(`https://youtube.com/watch?v=${id}`, {
       filter: "audioonly"
