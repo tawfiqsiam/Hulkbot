@@ -56,7 +56,7 @@ function play(id, message) {
     dispatcher = conn.playStream(stream)
     
     dispatcher.on('end', () => {
-      queue.pop(queue[0])
+      queue.shift()
       if (queue.length == 0) {
         queue = []
         isPlaying = false
