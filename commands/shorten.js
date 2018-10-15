@@ -7,8 +7,8 @@ const discord = require('discord.js')
 module.exports.run = (bot, message, args) => {
   const link = args.join(" ");
   var l;
-  api.shorten(link, (err, link) => {
-    l = link;
+  api.shorten(link, (err, li) => {
+    l = li;
   }) 
   const em = new discord.RichEmbed()
   .addField("Link Shortener", `I shortened your link for you. Here's your link!\n${l}`)
