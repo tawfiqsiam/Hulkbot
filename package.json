@@ -9,6 +9,7 @@
      "start": "node bot.js"
 },
      "dependencies": {
+          "google-url": "latest",
           "ffmpeg": "latest",
           "get-youtube-id": "latest",
           "youtube-info": "latest",
