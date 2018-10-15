@@ -66,7 +66,7 @@ module.exports.run = (bot, message, args, discord) => {
 		.setDescription(`**Use h!help [category] for help on a certain category.**`)
 		.setTimestamp()
 		.addField("Categories", `**${categories.join("\n")}**`, true)
-		.addField("Links", "[Website](https://bot.hulkbot.ml/home) | [GitHub](https://github.com/FHGDev/Hulkbot)\n[Invite](https://discordapp.com/api/oauth2/authorize?client_id=294194506113220608&permissions=8&redirect_uri=https%3A%2F%2Fbot.hulkbot.ml%2Fhome&response_type=code&scope=bot%20guilds) | [Discord](https://discord.gg/Y5m3yvD)", true)
+		.addField("Links", "[Website](https://bot.hulkbot.ml/home) | [GitHub](https://github.com/FHGDev/Hulkbot)\n[Invite](https://discordapp.com/api/oauth2/authorize?client_id=294194506113220608&permissions=8&redirect_uri=https%3A%2F%2Fbot.hulkbot.ml%2Fhome&response_type=code&scope=bot%20guilds) | [Discord](https://discord.gg/qEFNkxB)", true)
 		
   	message.channel.send({embed: em})
 	};
