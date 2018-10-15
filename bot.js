@@ -71,15 +71,9 @@ bot.on("message", message => {
 
   if (cmd) {
       if (config.userblacklist.includes(message.author.id)) return;
-      message.channel.startTyping();
-        cmd.run(bot, message, args, discord);  
-      message.channel.stopTyping();
-        console.log(`${message.author.username} used the ${loggedcmd} command.`);
-        if (message.guild.id == "427846834225020928") {
-        return;
-    } else {
-        baselogger(bot, `**Command Run**\n\n**Command:** ${loggedcmd}\n**User:** ${message.author.tag}\n**Message:** ${message.content}\n**Guild:** ${message.guild.name}\n**Channel:** ${message.channel.name}`);
-    }
+      cmd.run(bot, message, args, discord)
+      console.log(`${message.author.username} used the ${loggedcmd} command.`);
+      baselogger(bot, `**Command Run**\n\n**Command:** ${loggedcmd}\n**User:** ${message.author.tag}\n**Message:** ${message.content}\n**Guild:** ${message.guild.name}\n**Channel:** ${message.channel.name}`);
   } 
     if (message.content.toLowerCase().includes("i love you hulkbot")) {
     message.channel.send("oh god, not another one");
