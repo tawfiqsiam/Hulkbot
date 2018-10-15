@@ -8,7 +8,7 @@ module.exports.run = (bot, message, args) => {
   const link = args.join(" ");
   api.shorten(link, (err, li) => {
     const em = new discord.RichEmbed()
-    .addField("Link Shortener", `I shortened your link for you. Here's your link!\n${l}`)
+    .addField("Link Shortener", `I shortened your link for you. Here's your link!\n${li}`)
     .setTimestamp()
     .setColor("RANDOM")
     message.channel.send({embed: em})
