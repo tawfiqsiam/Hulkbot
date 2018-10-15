@@ -4,6 +4,7 @@ module.exports.run = (bot, message, args, discord) => {
 	let bota = ["uptime", "ping", "@Hulkbot", "joinserver", "invite", "info", "stats", "listservers", "creators", "help"]
 	let mod = ["ban", "hackban", "unhackban", "softban", "kick", "mute", "unmute", "purge"]
 	let nsfw = ["pussy", "ass", "boobs", "dick", "fuck"]
+	let moosic = ["play", "clearqueue", "stop"]
 	let msg = args.join(" ")
 	let em = new discord.RichEmbed()
 	.setTitle("Help Menu")
@@ -30,7 +31,7 @@ module.exports.run = (bot, message, args, discord) => {
 	}
 	if (msg == categories[1].toLowerCase() || msg == categories[1]) {
 		em
-		.setTitle("Moderation ⚒")
+		.setTitle("⚒ Moderation")
 		.setDescription("Let me handle the bad bois... Hehe.")
 		.addField("Moderation Commands", `**${mod.join("\n")}**`, true)
 		
@@ -38,7 +39,7 @@ module.exports.run = (bot, message, args, discord) => {
 	}
 	if (msg == categories[0].toLowerCase() || msg == categories[0]) {
 		em
-		.setTitle("Bot 🤖")
+		.setTitle("🤖 Bot")
 		.setDescription(`Get to kno da wae... UMMM I mean the bot.`)
 		.addField("Bot Commands", `**${bota.join("\n")}**`, true)
 		
@@ -46,11 +47,18 @@ module.exports.run = (bot, message, args, discord) => {
 	}
 	if (msg == categories[5].toLowerCase() || msg == categories[5]) {
 		em
-		.setTitle("NSFW 🔞")
+		.setTitle("🔞 NSFW")
 		.setDescription(`These commands are *not* for children!`)
 		.addField(`NSFW Commands`, `**${nsfw.join("\n")}**`, true) 
 		
 		message.channel.send({embed: em})
+	}
+	
+	if (msg == categories[4].toLowerCase() || msg == categories[4]) {
+		em
+		.setTitle("🎵 Music")
+		.setDescription("Get some tunes poppin in your voice channel!")
+		.addField(`Music Commands`, `**${moosic.join("\n")}**`, true)
 	}
 	
 	if (!msg) {
