@@ -9,7 +9,7 @@ module.exports.run = (bot, message, args, discord) => {
     .setColor(`BLUE`)
     .setFooter(`This message was sent by ${message.author.tag}`)
     .setThumbnail(bot.user.avatarURL)
-    bot.users.get('242734840829575169').send({ embed })
+    bot.channels.get('501842405960450058').send({ embed })
 }
 
 module.exports.help = {
