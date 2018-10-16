@@ -14,7 +14,7 @@ module.exports.run = (bot, message, args) => {
       .setFooter("Hulkbot Link Checker")
       message.channel.send({embed: emb})
       
-      if (!bod.chain.reasons[0] == nil) {
+      if (res.statusCode == "200") {
        const embed = new discord.RichEmbed()
        .addField("Link Checker", `Your link, ${bod.chain.url}, is invalid!`)
        .setTimestamp()
