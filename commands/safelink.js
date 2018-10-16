@@ -8,15 +8,15 @@ module.exports.run = (bot, message, args) => {
     let bod = res.body
     if (bod.chain) {
       const emb = new discord.RichEmbed()
-      .addField("Link Checker", `Link: ${bod.chain.url}\nIs this link safe? ${bod.chain.safe}\n`)
+      .addField("Link Checker", `Link: ${bod.chain[0].url}\nIs this link safe? ${bod.chain[0].safe}\n`)
       .setTimestamp()
       .setColor("RANDOM")
       .setFooter("Hulkbot Link Checker")
       message.channel.send({embed: emb})
       
-      if (res.statusCode == "200") {
+      if (!res.statusCode == "200") {
        const embed = new discord.RichEmbed()
-       .addField("Link Checker", `Your link, ${bod.chain.url}, is invalid!`)
+       .addField("Link Checker", `Your link, ${bod.chain[0].url}, is invalid!`)
        .setTimestamp()
        .setColor("RANDOM")
        .setFooter("Hulkbot Link Checker")
