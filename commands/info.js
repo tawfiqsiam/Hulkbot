@@ -9,6 +9,7 @@ module.exports.run = (bot, message, args, discord) => {
   .addField(`How to use me`,`To see what I can do, use h!help`)
   .addField(`More!`,`My invocation method is using prefixes, currently, I only respond to messages beginning with h!`)
   .setTimestamp()
+  .setColor("RANDOM")
   message.channel.send({embed: embed})
 }
 
