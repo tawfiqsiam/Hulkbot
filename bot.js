@@ -1,6 +1,5 @@
 // init ;p
 const time = Date(),
-stitch = require("mongodb-stitch"),
 pak = require('./package.json'),
 discord = require('discord.js'),
 config = require('./json/config.json'),
@@ -78,7 +77,7 @@ bot.on("message", message => {
     if (message.content.toLowerCase().includes("i love you hulkbot")) {
     message.channel.send("oh god, not another one");
   }
-  if (message.content == `<@294194506113220608>`) {
+  if (message.content.startsWith(`<@${bot.user.id}>`)) {
       let embed = new discord.RichEmbed()
       .setTitle("Hulkbot for Beginners")
       .setDescription("YUP! It's me, Hulkbot! To see more info on me, use the info command. (h!info)")
