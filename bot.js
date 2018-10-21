@@ -23,6 +23,10 @@ bot.invite = "https://discord.gg/qEFNkxB"
 // Gather commands
 bot.commands = new discord.Collection();
 
+process.on('unhandledRejection', (reason, promise) => {
+  console.log(new Error("Unhandled Rejection handled."))
+})
+
 require('fs').readdir("./commands/", (err, files) => {
   console.log("Loading commands...");
   if (err) return console.log(`Command loading failed!`);
