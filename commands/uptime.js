@@ -10,7 +10,7 @@ module.exports.run = (bot, message, args) => {
   
   let em = new discord.RichEmbed()
   .setTitle(`**${bot.user.username} Uptime**\n`)
-  .setDescription(`**Serving ${bot.guilds.size} for ${uptime}!**`)
+  .setDescription(`**Serving ${bot.guilds.size} servers for ${uptime}!**`)
   .setColor("RANDOM")
   .setTimestamp()
   .setFooter(`Requested by ${message.author.username}.`)
