@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args) => {
         if (err) throw new Error(err);
         const discord = require('discord.js');
         const embed = new discord.RichEmbed()
-        .addField("Added to Queue", `Added **${info.title}** to the queue..`)
+        .addField("Added to Queue", `Added **${info.title}** to the queue...`)
         .setTimestamp()
         .setColor("GREEN")
         message.channel.send({embed: embed})
@@ -48,6 +48,7 @@ module.exports.run = (bot, message, args) => {
         .addField("Now Playing", `Started playing **${info.title}** in **${vc.name}**.`)
         .setTimestamp()
         .setColor("GREEN")
+        message.channel.send({embed: embed})
       })
     })
   }
@@ -61,7 +62,7 @@ function play(id, message) {
       filter: "audioonly"
     })
     
-    dispatcher = conn.playStream(stream)
+    var dispatcher = conn.playStream(stream)
     
     dispatcher.on('end', () => {
       queue.shift()
@@ -69,7 +70,7 @@ function play(id, message) {
         queue = []
         isPlaying = false
       } else {
-        playMusic(queue[0], message)
+        play(queue[0], message)
       }
     })
   })
