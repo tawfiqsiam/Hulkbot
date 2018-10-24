@@ -55,24 +55,21 @@ module.exports.run = (bot, message, args) => {
 }
 
 function play(id, message) {
-  voicechannel = message.member.voiceChannel;
+  var voicechannel = message.member.voiceChannel;
   if (!isTester) return message.channel.send("Sorry, only testers can use the music module.");
   voicechannel.join().then(conn => {
     stream = dl(`https://youtube.com/watch?v=${id}`, {
       filter: "audioonly"
     })
-    
-    var dispatcher = conn.playStream(stream)
-    
-    dispatcher.on('end', () => {
-      queue.pop(queue[0])
-      if (queue.length == 0) {
-        queue = []
-        isPlaying = false
-      } else {
-        play(queue[0], message)
-      }
-    })
+      var dispatcher = conn.playStream(stream)
+      dispatcher.on('end', () => {
+        if (queue.length > 0) {
+          queue.shift()
+          play(queue[0], message)
+        } else {
+          return;
+        }
+      })
   })
 }
 
@@ -87,11 +84,7 @@ function getID(str, cb) {
 }
 
 function addqueue(strID) {
-  if (isYt(strID)) {
-    queue.push(getytid(strID))
-  } else {
-    
-  }
+  queue.push(strID)
 }
 
 function searchyt(q, cb) {
