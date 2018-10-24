@@ -40,7 +40,7 @@ module.exports.run = (bot, message, args) => {
   } else {
     isPlaying = true
     getID(msg, (id) => {
-      queue.push("placeholder")
+      queue.push(id)
       play(id, message)
       ytinfo(id, (err, info) => { 
         const discord = require('discord.js')
@@ -65,7 +65,7 @@ function play(id, message) {
     var dispatcher = conn.playStream(stream)
     
     dispatcher.on('end', () => {
-      queue.shift()
+      queue.pop(queue[0])
       if (queue.length == 0) {
         queue = []
         isPlaying = false
