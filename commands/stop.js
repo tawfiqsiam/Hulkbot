@@ -1,6 +1,6 @@
 module.exports.run = (bot, message, args) => {
   var queue = require('./play.js').queue
-  const vc = message.guild.me.voiceChannel()
+  const vc = message.guild.me.voiceChannel
   if (!vc) return message.channel.send("I am not playing music.");
   const discord = require('discord.js');
   const em = new discord.RichEmbed()
