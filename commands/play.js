@@ -67,7 +67,12 @@ function play(id, message) {
           queue.shift()
           play(queue[0], message)
         } else {
-          return;
+          voiceChannel.leave()
+          const embed = new discord.RichEmbed()
+          .addField("End of Queue", `I stopped playing music in ${voicechannel.name}.`)
+          .setTimestamp()
+          .setColor("RANDOM")
+          message.channel.send({embed: embed})
         }
       })
   })
