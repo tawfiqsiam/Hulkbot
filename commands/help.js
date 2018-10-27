@@ -1,6 +1,6 @@
 module.exports.run = (bot, message, args, discord) => {
  	let categories = ["Bot", "Moderation", "Fun", "Music", "More help", "NSFW"]
-	let fun = ["coinflip", "chucknorris", "yomomma", "bork", "advice", "redeem", "google", "knockknock", "meme", "avatar", "snek", "stats", "timer", "whois", "weather"]
+	let fun = ["coinflip", "chucknorris", "yomomma", "bork", "advice", "redeem", "knockknock", "meme", "avatar", "snek", "stats", "timer", "whois", "weather"]
 	let bota = ["uptime", "ping", "@Hulkbot", "joinserver", "invite", "info", "stats", "listservers", "creators", "help"]
 	let mod = ["ban", "hackban", "unhackban", "softban", "kick", "mute", "unmute", "purge"]
 	let nsfw = ["pussy", "ass", "boobs", "dick", "fuck"]
