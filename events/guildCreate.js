@@ -1,6 +1,14 @@
 const fs = require('fs')
+const snekfetch = require('snekfetch')
 
 module.exports = (bot, guild, discord) => {
+  // post new server count
+  snekfetch.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
+    .set('Authorization', process.env.tok)
+    .send({ server_count: bot.guilds.size })
+    .then(() => console.log('Updated discordbots.org stats.'))
+    .catch(err => console.error(`Whoops something went wrong: ${err.body}`));
+  // Owner msg
   let member = guild.owner
   let embed = new discord.RichEmbed()
   .setTitle("Introduction to Hulkbot")
