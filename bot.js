@@ -12,6 +12,7 @@ updates = ["Removed the language filter for good."],
 webhookchannelid = "441710517460008960",
 cleverbot = require('cleverbot.io'),
 ms = require('ms'),
+snekfetch = require('snekfetch'),
 cb = new cleverbot("sMNApmkOjMlZRlPZ", "gskxw3JBqEVGIAboBjOnvyTf8awM1MbS")
 config.updates = updates.join(' ')
 // End of init
@@ -39,6 +40,12 @@ bot.on("ready", () => {
   require('./util/poststats.js')(bot)
   require('./util/consoles.js')(bot, config)
   bot.user.setActivity("Loading Hulkbot...", {type: "STREAMING", url: "https://twitch.tv/freakinghulk"})
+  // Post bot stats
+  snekfetch.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
+    .set('Authorization', process.env.tok)
+    .send({ server_count: bot.guilds.size })
+    .then(() => console.log('Updated discordbots.org stats.'))
+    .catch(err => console.error(`Whoops something went wrong: ${err.body}`));
   
   setTimeout(() => {
     bot.user.setActivity(`for h!help | ${bot.guilds.array().length} servers`, {type: "WATCHING"});
