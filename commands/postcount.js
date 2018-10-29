@@ -1,4 +1,5 @@
 module.exports.run = (bot, message, args) => {
+  if (!message.author.id == process.env.oid) return message.channel.send("Nope!");
   const msg = "Posted my server count to DBL."
   require('snekfetch').post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
     .set('Authorization', process.env.tok)
