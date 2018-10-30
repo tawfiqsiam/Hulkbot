@@ -5,7 +5,7 @@ module.exports = (bot, member) => {
     if (guildids.includes(member.guild.id)) {
         return;
     }
-    let channel = member.guild.channels.find('name', 'welcome')
+    let channel = member.guild.channels.find(channel => channel.name == "welcome")
     if (!channel) return;
         channel.send(`:dizzy_face: ${member.displayName} just left ${member.guild.name}.`)
 }
