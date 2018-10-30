@@ -25,7 +25,7 @@ module.exports = (bot, member) => {
       return;
    } else {
    // SOON: member.send(`Welcome to ${member.guild.name}, ${member.displayName}!`);
-   const channel = member.guild.channels.find('name', 'welcome');
+   const channel = member.guild.channels.find(channel => channel.name == "welcome")
    if (!channel) return;
       if (!member.displayName) {
          channel.send(`Welcome to ${member.guild.name}, ${member.user.username}!`);
