@@ -1,4 +1,4 @@
-# JSHulkbot
+# Hulkbot
 My Discord Bot.
 
 [![Homepage](https://img.shields.io/badge/M-Homepage-7289DA.svg?style=flat-square)](https://bot.hulkbot.ml/home)
