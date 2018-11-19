@@ -1,5 +1,5 @@
 module.exports.run = (bot, message, args) => {
-	if (message.member.hasPermission(["MANAGE_MESSAGES"], false, true, true)) {
+	if (message.member.hasPermission("MANAGE_MESSAGES")) {
   if (isNaN(args[0])) {
     return message.channel.send('Please define a number..').then(m => m.delete(2000))
   }
@@ -8,11 +8,14 @@ module.exports.run = (bot, message, args) => {
   message.channel.send(":exclamation: Beginning to purge " + am + " messages... :exclamation:").then(m => m.delete(2500))
 
   setTimeout(() => {
-	message.channel.fetchMessages({limit: am}).then(m => message.channel.bulkDelete(m))
-	message.channel.send("Done! Purged " + am + " messages!").then(m => m.delete(2000))
+    message.channel.bulkDelete(am)
+    .then(() => {
+        message.channel.send("Done! Purged " + am + " messages!").then(m => m.delete(2000))
+    })
+    .catch(err => message.channel.send("I couldn't purge those messages.").then(m => m.delete(2000)))
   }, 1000);
 } else {
-	message.channel.send("Sorry, you don't have the required permissions. :neutral_face:").then(m => m.delete(2000))
+	message.channel.send(":neutral_face: You don't have permission to do that. :neutral_face:").then(m => m.delete(2000))
 	}
 }
 
@@ -21,5 +24,3 @@ module.exports.help = {
   usage: `[amount]`,
   information: "Remove x amount of messages"
 }
-
-	
