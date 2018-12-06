@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args, discord) => {
     .setDescription(`Welp! The coin landed on heads! You win.`)
     .setColor(`GREEN`)
     .setTimestamp()
-    message.channel.send({embed: embed}))
+    message.channel.send({embed: embed})
   } else {
     let em = new discord.RichEmbed()
     .setTitle(`${bot.user.username} Coinflip`)
