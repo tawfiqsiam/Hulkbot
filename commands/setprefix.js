@@ -8,14 +8,14 @@ async function runCmd(bot, message, args) {
   gdata.findOne({guildId: message.guild.id}, (err,data) => {
     const em = new (require('discord.js').RichEmbed)()
     .setTitle("Hulkbot Prefix Changer")
-    .setDescription(`I changed my prefix for this guild!")
+    .setDescription(`I changed my prefix for this guild!`)
     .addField(`Previous Prefix`, data.prefix, true)
     .addField(`New Prefix`, prefix, true)
     .setTimestamp()
     .setColor("GREEN")
     message.channel.send({embed: em})
     data.prefix = prefix;
-    data.save().catch(e => message.channel.send("Hmm... Something went wrong. Please try again, or contact FHGDev with `h!contact`."))
+    data.save().catch(e => message.channel.send("Hmm... Something went wrong. Please try again, or contact FHGDev with \`h!contact`."))
   })
 } 
 
