@@ -19,6 +19,7 @@ module.exports.run = (bot, message, args) => {
       .addField("Balance:", `$${randomcoins}.00`, true)
       .setTimestamp()
       .setFooter("Use Economy commands to earn more cash!")
+      .setColor("GREEN")
       message.channel.send({embed: em})
     } else {
       data.cash = data.cash + randomcoins
@@ -28,9 +29,10 @@ module.exports.run = (bot, message, args) => {
       .setTitle("Hulkbot Work")
       .setDescription(`You successfully worked at the office today!`)
       .addField(`Earned Cash:`, `$${randomcoins}.00`, true)
-      .addField("Balance:" `$${data.cash}.00`, true)
+      .addField("Balance:", `$${data.cash}.00`, true)
       .setTimestamp()
       .setFooter("Use Economy commands to earn more cash!")
+      .setColor("GREEN")
       message.channel.send({embed: em})
     }
   })
