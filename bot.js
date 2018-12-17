@@ -115,6 +115,7 @@ bot.on("message", message => {
     .setDescription(`Hey! Welcome to my intro! For help, use h!help! For info about me, use h!info!`)
     .setColor("GREEN")
     .setTimestamp()
+    console.log('lol')
     message.channel.send({embed: em})
   }
  });
