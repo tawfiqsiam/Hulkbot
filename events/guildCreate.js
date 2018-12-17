@@ -1,7 +1,10 @@
 const fs = require('fs')
 const snekfetch = require('snekfetch')
+const gdata = require("../database/mongoose/GuildData")
 
 module.exports = (bot, guild, discord) => {
+  const channel = guild.channels.find(c => c.name == "welcome")
+  const modc = guild.channels.find(c => c.name == "guild-logs")
   // post new server count
   snekfetch.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
     .set('Authorization', process.env.tok)
@@ -18,6 +21,14 @@ module.exports = (bot, guild, discord) => {
   .addField("Done!", "Alrighty! Now you can start using all my awesome features in your server!")
   .setThumbnail(bot.user.avatarURL)
   .setTimestamp()
- 
-  member.send({embed})
+  member.send({embed: embed})
+  
+  const newD = new gdata({
+    guildId: guild.id,
+    isPremium: false,
+    welcome: channel.id || null,
+    modlog: modc.id || null,
+    isBL: false
+  })
+  newD.save()
 }
