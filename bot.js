@@ -4,8 +4,8 @@ pak = require('./package.json'),
 discord = require('discord.js'),
 config = require('./json/config.json'),
 profanities = require("./profanities.json"),
-bot = new discord.Client(),
-prefix = process.env.prefix,
+bot = new discord.Client()
+var prefix = process.env.prefix,
 {baselogger} = require('./src/logger.js'),
 result = Math.round(Math.random()),
 updates = ["Work command added.", "MongoDB is now Hulkbot's official database provider."],
@@ -16,6 +16,7 @@ snekfetch = require('snekfetch'),
 cb = new cleverbot("sMNApmkOjMlZRlPZ", "gskxw3JBqEVGIAboBjOnvyTf8awM1MbS")
 config.updates = updates.join(' ')
 require('mongoose').connect(`mongodb+srv://Hulkbot:${process.env.mongopassword}@hulkbot-2fias.gcp.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true })
+const gdata = require('./database/mongoose/GuildData')
 // End of init
 
 // The bot's support server invite vvv
@@ -69,6 +70,10 @@ bot.on("guildMemberRemove", (member) => require('./events/guildMemberRemove.js')
 bot.on("guildBanRemove", (guild, member) => require('./events/BanRemove.js')(bot, guild, member))
  
 bot.on("message", message => {
+  gdata.findOne({guildId: message.guild.id}, (err,data) => {
+    prefix = data.prefix
+  })
+  
   if (!message.guild) return;
   if (!message.content.startsWith(prefix)) return;
   if (message.channel.type == "dm") return;
