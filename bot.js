@@ -108,7 +108,7 @@ bot.on("message", message => {
     if (message.content == "i love you hulkbot") {
     message.channel.send("oh god, not another one");
   }
-  if (mentionedmember.user.name == "Hulkbot") {
+  if (mentionedmember.user.username == "Hulkbot") {
       let embed = new discord.RichEmbed()
       .setTitle("Hulkbot for Beginners")
       .setDescription("YUP! It's me, Hulkbot! To see more info on me, use the info command. (h!info)")
