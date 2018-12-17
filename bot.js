@@ -81,6 +81,7 @@ bot.on("message", message => {
         isBL: false
       })
       data.save()
+      prefix = newG.prefix
     } else {
       prefix = data.prefix
     }
