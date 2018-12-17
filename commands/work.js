@@ -16,7 +16,7 @@ module.exports.run = (bot, message, args) => {
       .setTitle("Hulkbot Work")
       .setDescription(`You successfully worked at the office today!`)
       .addField(`Earned Cash:`, `$${randomcoins}.00`, true)
-      .addField("Balance:" `$${randomcoins}.00`, true)
+      .addField("Balance:", `$${randomcoins}.00`, true)
       .setTimestamp()
       .setFooter("Use Economy commands to earn more cash!")
       message.channel.send({embed: em})
