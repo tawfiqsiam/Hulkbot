@@ -108,16 +108,15 @@ bot.on("message", message => {
     if (message.content == "i love you hulkbot") {
     message.channel.send("oh god, not another one");
   }
-  if (mentionedmember !== null) {
-    if (mentionedmember.displayName == "Hulkbot") {
-      let embed = new discord.RichEmbed()
-      .setTitle("Hulkbot for Beginners")
-      .setDescription("YUP! It's me, Hulkbot! To see more info on me, use the info command. (h!info)")
-      .setColor("PURPLE")
-      .setThumbnail(bot.user.avatarURL)
-      .setTimestamp()
-   message.channel.send({embed: embed})
-    }
+  
+  if (message.mentions.members.first() == message.guild.me) {
+    const em = new discord.RichEmbed()
+    .setTitle("Introduction")
+    .setDescription(`Hey! Welcome to the Hulkbot introduction. To see additional info, run "h!info". For help, run "h!help".`)
+    .setTimestamp()
+    .setFooter("Intro")
+    .setColor("GREEN")
+    message.channel.send({embed: em})
   }
  });
       
