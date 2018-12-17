@@ -109,12 +109,11 @@ bot.on("message", message => {
     message.channel.send("oh god, not another one");
   }
   
-  if (mentionedmember.user == bot.user) {
+  if (message.mentions.members.get(bot.user.id)) {
     const em = new discord.RichEmbed()
-    .setTitle("Introduction")
-    .setDescription(`Hey! Welcome to the Hulkbot introduction. To see additional info, run "h!info". For help, run "h!help".`)
+    .setTitle("Hulkbot Intro")
+    .setDescription(`Hey! Welcome to the Hulkbot Intro. For info, use "h!info". For help, use "h!help".`)
     .setTimestamp()
-    .setFooter("Intro")
     .setColor("GREEN")
     message.channel.send({embed: em})
   }
