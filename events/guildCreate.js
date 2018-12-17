@@ -25,6 +25,7 @@ module.exports = (bot, guild, discord) => {
   
   const newD = new gdata({
     guildId: guild.id,
+    prefix: "h!",
     isPremium: false,
     welcome: channel.id || null,
     modlog: modc.id || null,
