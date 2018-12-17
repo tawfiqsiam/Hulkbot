@@ -70,7 +70,7 @@ bot.on("guildMemberRemove", (member) => require('./events/guildMemberRemove.js')
 bot.on("guildBanRemove", (guild, member) => require('./events/BanRemove.js')(bot, guild, member))
  
 bot.on("message", message => {
-  const mentionedmember = message.mentions.members.first()
+  var mentionedmember = message.mentions.members.first()
   gdata.findOne({guildId: message.guild.id}, (err,data) => {
     if (data == null) {
       const newG = new gdata({
@@ -108,7 +108,8 @@ bot.on("message", message => {
     if (message.content == "i love you hulkbot") {
     message.channel.send("oh god, not another one");
   }
-  if (mentionedmember.displayName == "Hulkbot") {
+  if (mentionedmember !== null) {
+    if (mentionedmember.displayName == "Hulkbot") {
       let embed = new discord.RichEmbed()
       .setTitle("Hulkbot for Beginners")
       .setDescription("YUP! It's me, Hulkbot! To see more info on me, use the info command. (h!info)")
@@ -116,6 +117,7 @@ bot.on("message", message => {
       .setThumbnail(bot.user.avatarURL)
       .setTimestamp()
    message.channel.send({embed: embed})
+    }
   }
  });
       
