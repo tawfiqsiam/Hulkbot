@@ -70,6 +70,7 @@ bot.on("guildMemberRemove", (member) => require('./events/guildMemberRemove.js')
 bot.on("guildBanRemove", (guild, member) => require('./events/BanRemove.js')(bot, guild, member))
  
 bot.on("message", message => {
+  const mentionedmember = message.mentions.members.first()
   gdata.findOne({guildId: message.guild.id}, (err,data) => {
     if (data == null) {
       const newG = new gdata({
@@ -104,10 +105,10 @@ bot.on("message", message => {
       console.log(`${message.author.username} used the ${loggedcmd} command.`);
       baselogger(bot, `**Command Run**\n\n**Command:** ${loggedcmd}\n**User:** ${message.author.tag}\n**Message:** ${message.content}\n**Guild:** ${message.guild.name}\n**Channel:** ${message.channel.name}`);
   } 
-    if (message.content.toLowerCase().includes("i love you hulkbot")) {
+    if (message.content == "i love you hulkbot") {
     message.channel.send("oh god, not another one");
   }
-  if (message.content == `<@294194506113220608>`) {
+  if (mentionedmember.user.name == "Hulkbot") {
       let embed = new discord.RichEmbed()
       .setTitle("Hulkbot for Beginners")
       .setDescription("YUP! It's me, Hulkbot! To see more info on me, use the info command. (h!info)")
