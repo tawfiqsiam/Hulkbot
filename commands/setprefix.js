@@ -1,6 +1,6 @@
 const gdata = require('../database/mongoose/GuildData')
 
-async function runCmd(bot, message, args) => {
+async function runCmd(bot, message, args) {
   const prefix = args.join(" ");
   
   if (prefix.length > 3) return message.channel.send("My prefix cannot be over 3 characters long.");
