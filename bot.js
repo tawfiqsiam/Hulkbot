@@ -81,7 +81,7 @@ bot.on("message", message => {
         modlog: null,
         isBL: false
       })
-      data.save()
+      newG.save()
       prefix = newG.prefix
     } else {
       prefix = data.prefix
