@@ -27,7 +27,7 @@ bot.invite = "https://discord.gg/qEFNkxB"
 bot.commands = new discord.Collection();
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.log(new Error("Unhandled Rejection handled."))
+  console.log(new Error(reason))
 })
 
 require('fs').readdir("./commands/", (err, files) => {
