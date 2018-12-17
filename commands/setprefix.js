@@ -22,6 +22,6 @@ async function runCmd(bot, message, args) {
 module.exports = {
   help: {
     name: "setprefix"
-  }
+  },
   run: runCmd
 }
