@@ -71,7 +71,19 @@ bot.on("guildBanRemove", (guild, member) => require('./events/BanRemove.js')(bot
  
 bot.on("message", message => {
   gdata.findOne({guildId: message.guild.id}, (err,data) => {
-    prefix = data.prefix
+    if (data == null) {
+      const newG = new gdata({
+        guildId: message.guild.id,
+        prefix: "h!",
+        isPremium: false,
+        welcome: null,
+        modlog: null,
+        isBL: false
+      })
+      data.save()
+    } else {
+      prefix = data.prefix
+    }
   })
   
   if (!message.guild) return;
