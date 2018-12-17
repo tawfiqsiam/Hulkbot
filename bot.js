@@ -109,7 +109,7 @@ bot.on("message", message => {
     message.channel.send("oh god, not another one");
   }
   
-  if (message.isMentioned(bot.user.id)) {
+  if (message.isMentioned("294194506113220608")) {
     const em = new discord.RichEmbed()
     .setTitle(`Hulkbot Intro`)
     .setDescription(`Hey! Welcome to my intro! For help, use h!help! For info about me, use h!info!`)
