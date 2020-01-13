@@ -15,7 +15,7 @@
           "youtube-info": "latest",
           "ytdl-core": "latest",
           "roblox-js": "latest",
-          "discord.js": "^11.4.2",
+         "discord.js": "^11.4.2",
           "dblapi.js": "^2.0.1",
           "node-opus": "^0.2.7",
           "opusscript": "^0.0.6",
@@ -27,6 +27,8 @@
           "discord.js": "^11.3.0",
           "cheerio": "^1.0.0-rc.2",
           "ms": "^2.0.0",
+         "node": "8.12.0",
+         "npm": "6.4.1"
           "nodemon": "^1.12.1",
           "querystring": "^0.2.0",
           "request": "^2.83.0",
