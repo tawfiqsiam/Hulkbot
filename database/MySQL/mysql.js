@@ -2,8 +2,8 @@ module.exports = (bot, guild) => {
   const mysql = require('mysql')
 
   const connection = mysql.createConnection({
-     host: "fdb21.awardspace.net",
-     user: "2710768_fhgdb",
+     host: "fdb19.awardspace.net",
+     user: "3289730_starzz",
      password: process.env.mysqlpass,
      port: 3306
   })
