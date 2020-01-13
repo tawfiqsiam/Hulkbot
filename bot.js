@@ -41,7 +41,7 @@ bot.on("ready", () => {
   //Let's just leave this out for now. ;
   //var general = bot.channels.find('name', 'general')
   //general.send("Hey everyone. Hulk here. Just letting you know, if the bot shuts down, it's just for updates. See ya.")
- let status = ["https://bot.hulkbot.ml/home", "You wouldn't like me when I'm angry.", `${bot.guilds.array().length} servers`];
+ let status = ["A Bot For Cool kids only", "You wouldn't like me when I'm angry.", `${bot.guilds.array().length} servers`];
   // Status Rotator
   gameval = 0;
   setInterval(() => {
