@@ -6,15 +6,15 @@ module.exports.run = (bot, message, args) => {
       icon_url: bot.user.avatarURL
     },
     title: "Help",
-    url: "https://discord.gg/XvMA2rJ",
+    url: "https://discord.gg/G77DG59",
     description: "You asked for help, here it is.",
     fields: [{
         name: "Owner Only",
-        value: "shutdown, restart, and changegame."
+        value: "`shutdown`, `restart`, and `changegame`."
       },
       {
         name: "Utility :tools:",
-        value: "mute, unmute, kick, ban, auth, purge, perms, filteroff, and filteron."
+        value: "`mute`, `unmute`, `kick`, `ban`, `auth`, `purge`, `perms`, `filteroff`, and `filteron`."
       },
       {
         name: "Bot Status :robot:",
@@ -22,15 +22,15 @@ module.exports.run = (bot, message, args) => {
       },
       {
         name: "Adding the bot, and more help.",
-        value: "joinserver, invite, and info."
+        value: "`joinserver`, `invite`, and `info`."
       },
              {
         name: "Fun",
-        value: "coinflip, say, myid, avatar, serverid, bork, and yomomma."
+        value: "`coinflip`, `say`, `myid`, `avata`r, `serverid`, `bork`, and `yomomma`."
       },
       {
         name: "More",
-        value: "Additional commands at https://bot.hulkbot.ml/commands"
+        value: "More commands will be added soon"
       }
     ],
     timestamp: new Date(),
