@@ -15,6 +15,7 @@
           "youtube-info": "latest",
           "ytdl-core": "latest",
           "roblox-js": "latest",
+          "discord.js": "^11.4.2",
           "dblapi.js": "^2.0.1",
           "node-opus": "^0.2.7",
           "opusscript": "^0.0.6",
