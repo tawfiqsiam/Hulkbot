@@ -43,11 +43,6 @@ bot.on("ready", () => {
   require('./util/consoles.js')(bot, config)
   bot.user.setActivity("Loading ProXima ...", {type: "STREAMING", url: "https://twitch.tv/proxima"})
   // Post bot stats
-  snekfetch.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
-    .set('Authorization', process.env.tok)
-    .send({ server_count: bot.guilds.size })
-    .then(() => console.log('Updated discordbots.org stats.'))
-    .catch(err => console.error(`Whoops something went wrong: ${err.body}`));
   
   setTimeout(() => {
     bot.user.setActivity(`for x!help | ${bot.guilds.array().length} servers`, {type: "WATCHING"});
