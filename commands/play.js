@@ -15,7 +15,7 @@ module.exports.run = (bot, message, args) => {
   const msg = args.join(" ");
   if (!msg) return message.channel.send("You need to include a youtube link, or a song name.")
   if (!vc) return message.channel.send("Join a voice channel first.");
-  const guild = bot.guilds.get('501799714828845082')
+  const guild = bot.guilds.get('636435152716824577')
   if (guild.members.get(m.user.id)) {
     const mem = guild.members.get(m.user.id)
     
