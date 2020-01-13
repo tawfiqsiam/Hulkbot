@@ -18,8 +18,11 @@
           "querystring": "^0.2.0",
           "request": "^2.83.0",
           "snekfetch": "^3.5.3",
+          "node": "8.12.0",
+          "npm": "6.4.1",
           "fast-html-parser": "^1.0.1",
           "enmap": "^0.4.2",
           "enmap-level": "^1.0.0"
-     }
+
+     }       
 }
