@@ -41,7 +41,7 @@ require('fs').readdir("./commands/", (err, files) => {
 bot.on("ready", () => {
   require('./util/poststats.js')(bot)
   require('./util/consoles.js')(bot, config)
-  bot.user.setActivity("Loading Hulkbot...", {type: "STREAMING", url: "https://twitch.tv/freakinghulk"})
+  bot.user.setActivity("Loading ProXima ...", {type: "STREAMING", url: "https://twitch.tv/proxima"})
   // Post bot stats
   snekfetch.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
     .set('Authorization', process.env.tok)
@@ -50,7 +50,7 @@ bot.on("ready", () => {
     .catch(err => console.error(`Whoops something went wrong: ${err.body}`));
   
   setTimeout(() => {
-    bot.user.setActivity(`for h!help | ${bot.guilds.array().length} servers`, {type: "WATCHING"});
+    bot.user.setActivity(`for x!help | ${bot.guilds.array().length} servers`, {type: "WATCHING"});
   }, 20000)
 
   bot.guilds.forEach((guild, id) => {
