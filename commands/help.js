@@ -64,7 +64,7 @@ module.exports.run = (bot, message, args, discord) => {
 	if (!msg) {
 		em
 		.setDescription(`**Use x!help [category] for help on a certain category.**`)
-		.setTimestamp(,
+		.setTimestamp()
 		.addField("Categories", `**${categories.join("\n")}**`, true)
 		.addField("Links", "[Invite](https://discordapp.com/api/oauth2/authorize?client_id=666237538431795240&permissions=8&redirect_uri=https%3A%2F%2Fbot.hulkbot.tk%2Fhome&response_type=code&scope=bot%20guilds) | [Discord](https://discord.gg/G77DG59)", true)
 		
