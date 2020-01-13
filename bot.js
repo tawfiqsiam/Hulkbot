@@ -49,7 +49,7 @@ bot.on("ready", () => {
       gameval = 0;
     }
     var game = status[gameval];
-    bot.user.setGame(`h!help | ${game}`);
+    bot.user.setGame(`x!help | ${game}`);
     gameval++;
   }, 45000); // 45 secs
   
