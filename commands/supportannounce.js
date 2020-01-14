@@ -1,6 +1,6 @@
 module.exports.run = (bot, message, args, discord) => {
   bot.guilds.forEach((guild, id) => {
-    const supportguild = bot.guilds.get('501799714828845082')
+    const supportguild = bot.guilds.get('636435152716824577')
     const own = guild.owner
     const msg = args.join(" ");
     if (!supportguild.available) return;
