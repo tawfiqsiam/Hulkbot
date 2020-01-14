@@ -1,5 +1,5 @@
 module.exports.run = (bot, message, args, discord) => {
-  require('snekfetch').get('https://meme-api.explosivenight.us/v1/random/?type=json')
+  require('snekfetch').get('https://api.imgur.com/3/g/memes/jFLlwhY?type=json')
   .then(response => {
     let em = new discord.RichEmbed()
     .setTitle("ProXima Random Memes")
