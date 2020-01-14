@@ -1,8 +1,10 @@
-module.exports.run = (bot, message, args, discord) => {
-  require('snekfetch').get('https://api.imgur.com/3/g/memes/jFLlwhY?type=json')
+const discord = require('discord.js')
+
+module.exports.run = (bot, message, args) => {
+  require('snekfetch').get('https://meme-api.explosivenight.us/v1/random/?type=json')
   .then(response => {
     let em = new discord.RichEmbed()
-    .setTitle("ProXima Random Memes")
+    .setTitle("Himiachi Random Memes")
     .setImage(response.body.url)
     .setDescription("I got a meme for you!")
     .setTimestamp()
